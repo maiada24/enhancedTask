@@ -1,0 +1,8 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" dir="{{Language_Layout}}">
+  <a [hidden]="!authenticationService.isLoggedIn" [routerLink]="['/login']" translate>Logout</a>
+  <button class="btn btn-link" (click)="switchLanguage()" translate>Lang</button>
+</nav>
+<div dir="{{Language_Layout}}">
+    <router-outlet></router-outlet>
+</div>
