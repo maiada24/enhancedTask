@@ -8,7 +8,6 @@ import { fakeBackendProvider } from './helpers/fake-backend';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { global } from "../app/globalVars";
 
 
 import { AppComponent } from './app.component';
@@ -44,9 +43,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [global, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
     // provider used to create fake backend
     fakeBackendProvider],
   bootstrap: [AppComponent]
